@@ -17,7 +17,14 @@ public class Pipline : MonoBehaviour
 
     void Awake()
     {
-        line = gameObject.AddComponent<LineRenderer>();
+        if (GetComponent<LineRenderer>() != null)
+        {
+            line = GetComponent<LineRenderer>();
+        }
+        else
+        {
+            line = gameObject.AddComponent<LineRenderer>();
+        }
         line.SetWidth(0.2f, 0.2f);
     }
 

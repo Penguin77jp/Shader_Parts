@@ -36,9 +36,7 @@ public class NodeManager : SingletonMonoBehaviour<NodeManager>
         Debug.Log("sort done");
         var _sort = new List<SerchNode>();
         _sort.Add(newSerchNode(getBase));
-        var i = 0;
-        // while (true)
-        for (i = 0; i < 100; i++)
+        while (true)
         {
             Node_Base serchingNode = null;
             foreach (var get in _sort)
