@@ -10,8 +10,6 @@ public class Node_Multi : Node_Base
     override public void Start()
     {
         VariableName = "Multi";
-
-        importer[0]._Base = exporter[0]._Base = GetComponent<Node_Base>();
         base.Start();
     }
 
@@ -20,8 +18,10 @@ public class Node_Multi : Node_Base
         if (exporter[0].pipline != null)
         {
             //export
-            exporter[0].VariableName = VariableName.ToString() + "_" + id.ToString();
-            actionString = "float " + VariableName.ToString() + "_" + id.ToString() + " = " + (inputFloat.text == string.Empty ? "0" : importer[0].importVariableName + "*" + inputFloat.text).ToString() + "; \n";
+            var _variableName = VariableName.ToString() + "_" + id.ToString();
+            var _variableType = VariableData.VariableType.float1;
+            var _var = exporter[0].exportVariable = new VariableData(_variableName, _variableType);
+            actionString = _var.VariableType2string(_variableType) + " " + _variableName + " = " + (inputFloat.text == string.Empty ? "0" : importer[0].importVariable.variableName + "*" + inputFloat.text).ToString() + "; \n";
         }
     }
 }

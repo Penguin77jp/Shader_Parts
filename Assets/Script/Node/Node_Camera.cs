@@ -8,7 +8,7 @@ public class Node_Camera : Node_Base
     {
         VariableName = "CameraSrc";
         exporter[0]._Base = GetComponent<Node_Base>();
-        exporter[0].VariableName = VariableName;
+        exporter[0].exportVariable.variableName = VariableName;
         base.Start();
     }
 

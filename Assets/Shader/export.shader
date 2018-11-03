@@ -5,8 +5,8 @@ _MainTex("Texture", 2D) = "white" { }
 }
 SubShader
 {
-Tags {"Queue" ="Transparent"}
-Blend SrcAlpha OneminusSrcAlpha
+Tags {"Queue" ="Geometry"}
+Blend One Zero
 Cull Off ZWrite On ZTest LEqual
 Pass
 {
@@ -35,23 +35,10 @@ sampler2D _MainTex;
 float4 _ExportColor;
 fixed4 frag(v2f i) : SV_Target
 {
-float2 UV_14 = i.uv; 
-float ExportColorR_13 = UV_14.x; 
-float ExportColorG_13 = UV_14.y; 
-float Multi_12 = ExportColorG_13*5; 
-float Multi_11 = ExportColorR_13*5; 
-float Frac_10 = frac(Multi_12);
-float Frac_9 = frac(Multi_11);
-float Float_8 = 0.5; 
-float Float_7 = 0.5; 
-float2 UV_6 = i.uv; 
-float2 Merge4_5 = fixed2(Frac_9,Frac_10); 
-float2 Merge4_4 = fixed2(Float_7,Float_8); 
-float ExportColorR_3 = UV_6.x; 
-float ExportColorG_3 = UV_6.y; 
-float Distance_2 = distance(Merge4_4,Merge4_5); 
-float Pow_1 = pow(Distance_2,ExportColorR_3); 
-return Pow_1;
+float Float_3 = 0; 
+float Float_2 = 0.5; 
+float Distance_1 = distance(Float_2,Float_3); 
+return Distance_1;
 			}
 			ENDCG
 		}

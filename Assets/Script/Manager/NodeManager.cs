@@ -7,11 +7,6 @@ public class NodeManager : SingletonMonoBehaviour<NodeManager>
     public RenderTexture srcTexture;
     public RenderTexture destTexture;
 
-    public enum VariableType
-    {
-        float1, float2, float3, float4
-    }
-
     public List<Node_Base> node_bases;
     private struct SerchNode
     {

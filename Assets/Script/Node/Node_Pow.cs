@@ -8,8 +8,6 @@ public class Node_Pow : Node_Base
     override public void Start()
     {
         VariableName = "Pow";
-
-        importer[0]._Base = exporter[0]._Base = GetComponent<Node_Base>();
         base.Start();
     }
 
@@ -18,8 +16,10 @@ public class Node_Pow : Node_Base
         if (exporter[0].pipline != null)
         {
             //export
-            exporter[0].VariableName = VariableName.ToString() + "_" + id.ToString();
-            actionString = "float " + VariableName.ToString() + "_" + id.ToString() + " = pow(" + importer[0].importVariableName + "," + importer[1].importVariableName.ToString() + "); \n";
+            var _variableName = VariableName.ToString() + "_" + id.ToString();
+            var _variableType = VariableData.VariableType.float1;
+            var _var = exporter[0].exportVariable = new VariableData(_variableName, _variableType);
+            actionString = _var.VariableType2string(_variableType) + " " + _variableName + " = pow(" + importer[0].importVariable.variableName + "," + importer[1].importVariable.variableName.ToString() + "); \n";
         }
     }
 }

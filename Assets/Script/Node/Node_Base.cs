@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEditor;
 
 public class Node_Base : MonoBehaviour
 {
@@ -15,6 +16,14 @@ public class Node_Base : MonoBehaviour
     virtual public void Awake()
     {
         id = -1;
+        foreach (var get in importer)
+        {
+            get._Base = GetComponent<Node_Base>();
+        }
+        foreach (var get in exporter)
+        {
+            get._Base = GetComponent<Node_Base>();
+        }
     }
 
     virtual public void Start()
@@ -29,6 +38,15 @@ public class Node_Base : MonoBehaviour
         triggerEntry.callback.AddListener((eventData) => { PositioneMove(); });
         trigger.triggers.Add(triggerEntry);
         SetTerminalPosition();
+        //set base
+        foreach (var get in importer)
+        {
+            get._Base = GetComponent<Node_Base>();
+        }
+        foreach (var get in exporter)
+        {
+            get._Base = GetComponent<Node_Base>();
+        }
     }
 
     public void SetTerminalPosition()

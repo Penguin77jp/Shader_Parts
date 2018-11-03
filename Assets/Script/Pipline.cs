@@ -41,7 +41,7 @@ public class Pipline : MonoBehaviour
         }
         if (pointImporter != null && pointExporter != null)
         {
-            pointImporter.importVariableName = pointExporter.VariableName;
+            pointImporter.importVariable = pointExporter.exportVariable;
             pointExporter.pipline = pointImporter.pipline = GetComponent<Pipline>();
             if (!once)
             {

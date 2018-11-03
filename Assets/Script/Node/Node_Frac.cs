@@ -7,7 +7,6 @@ public class Node_Frac : Node_Base
     override public void Start()
     {
         VariableName = "Frac";
-        importer[0]._Base = exporter[0]._Base = GetComponent<Node_Base>();
         base.Start();
     }
 
@@ -15,8 +14,10 @@ public class Node_Frac : Node_Base
     {
         if (exporter[0].pipline != null)
         {
-            exporter[0].VariableName = VariableName + "_" + id.ToString();
-            actionString = "float " + VariableName + "_" + id + " = frac(" + importer[0].importVariableName + ");\n";
+            var _variableName = VariableName + "_" + id.ToString();
+            var variableType = VariableData.VariableType.float1;
+            exporter[0].exportVariable = new VariableData(_variableName, variableType);
+            actionString = exporter[0].exportVariable.VariableType2string(variableType) + " " + _variableName + " = frac(" + importer[0].importVariable.variableName + ");\n";
         }
     }
 }

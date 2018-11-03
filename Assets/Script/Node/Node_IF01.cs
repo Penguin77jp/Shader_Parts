@@ -9,11 +9,6 @@ public class Node_IF01 : Node_Base
     override public void Start()
     {
         VariableName = "IF01";
-
-        importer[0]._Base = importer[1]._Base = GetComponent<Node_Base>();
-        exporter[0]._Base = GetComponent<Node_Base>();
-
-
         base.Start();
     }
 
@@ -22,7 +17,9 @@ public class Node_IF01 : Node_Base
         if (importer[0].pipline != null)
         {
             //export
-            exporter[0].VariableName = VariableName.ToString() + "_" + id.ToString();
+            var _variableName = VariableName.ToString() + "_" + id.ToString();
+            var _variableType = VariableData.VariableType.float1;
+            exporter[0].exportVariable = new VariableData(_variableName, _variableType);
             var if_c = string.Empty;
             if (toggle[0].isOn)
             {
@@ -36,7 +33,7 @@ public class Node_IF01 : Node_Base
             {
                 if_c = ">";
             }
-            actionString = "int " + VariableName + "_" + id + " = (" + importer[0].importVariableName + " " + if_c + " " + importer[1].importVariableName + "); \n";
+            actionString = exporter[0].exportVariable.VariableType2string(_variableType) + " " + _variableName + " = (" + importer[0].importVariable.variableName + " " + if_c + " " + importer[1].importVariable.variableName + "); \n";
         }
     }
 }

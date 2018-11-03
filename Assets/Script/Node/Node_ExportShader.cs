@@ -20,6 +20,11 @@ public class Node_ExportShader : Node_Base
     public void OnClick()
     {
         NodeManager.Instance.Node_sort(GetComponent<Node_Base>());
+        for (var i = NodeManager.Instance.node_bases.Count - 1; i >= 0; i--)
+        {
+            var get = NodeManager.Instance.node_bases[i];
+            get.exporter.FindAll(x => x.exportVariable.isGlobal).ForEach(x => Debug.Log(x.exportVariable.variableName));
+        }
         var shaderText = string.Empty;
         shaderText += "Shader \"Custom/export\"";
         shaderText += "{\n" +
@@ -65,7 +70,7 @@ public class Node_ExportShader : Node_Base
             var get = NodeManager.Instance.node_bases[i];
             shaderText += get.actionString;
         }
-        shaderText += "return " + importer[0].importVariableName + ";\n";
+        shaderText += "return " + importer[0].importVariable.variableName + ";\n";
         shaderText += File.ReadAllText(Application.dataPath + "/Shader/shader_template_end.txt");
         File.WriteAllText(Application.dataPath + "/Shader/export.shader", shaderText);
         AssetDatabase.Refresh();

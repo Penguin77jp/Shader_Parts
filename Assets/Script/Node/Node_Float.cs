@@ -7,13 +7,10 @@ public class Node_Float : Node_Base
 {
     [SerializeField]
     private InputField inputFloat;
+    public Toggle grobalToggle;
     override public void Start()
     {
         VariableName = "Float";
-
-        exporter[0]._Base = GetComponent<Node_Base>();
-
-
         base.Start();
     }
 
@@ -22,7 +19,7 @@ public class Node_Float : Node_Base
         if (exporter[0].pipline != null)
         {
             //export
-            exporter[0].VariableName = VariableName.ToString() + "_" + id.ToString();
+            exporter[0].exportVariable = new VariableData(VariableName.ToString() + "_" + id.ToString(), VariableData.VariableType.float1, grobalToggle.isOn);
             actionString = "float " + VariableName.ToString() + "_" + id.ToString() + " = " + (inputFloat.text == string.Empty ? "0" : inputFloat.text).ToString() + "; \n";
         }
     }

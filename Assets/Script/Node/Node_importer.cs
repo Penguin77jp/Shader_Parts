@@ -5,7 +5,6 @@ using UnityEngine;
 public class Node_importer : MonoBehaviour
 {
     public Node_Base _Base;
-    public NodeManager.VariableType VariableType;
-    public string importVariableName;
+    public VariableData importVariable;
     public Pipline pipline;
 }

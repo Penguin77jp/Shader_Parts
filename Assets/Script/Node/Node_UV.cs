@@ -7,7 +7,6 @@ public class Node_UV : Node_Base
     void Start()
     {
         VariableName = "UV";
-        exporter[0]._Base = GetComponent<Node_Base>();
         base.Start();
     }
 
@@ -16,9 +15,11 @@ public class Node_UV : Node_Base
         if (exporter[0].pipline != null)
         {
             //export
-            exporter[0].VariableName = VariableName.ToString() + "_" + id.ToString();
+            var _variableName = VariableName.ToString() + "_" + id.ToString();
+            var _variableType = VariableData.VariableType.float2;
+            var _var = exporter[0].exportVariable = new VariableData(_variableName, _variableType);
             var importVar = "i.uv";
-            actionString = "float2 " + exporter[0].VariableName + " = " + importVar + "; \n";
+            actionString = _var.VariableType2string(_variableType) + " " + _variableName + " = " + importVar + "; \n";
         }
     }
 }

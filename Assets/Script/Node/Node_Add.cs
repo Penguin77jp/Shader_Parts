@@ -8,21 +8,17 @@ public class Node_Add : Node_Base
     override public void Start()
     {
         VariableName = "Add";
-
-        importer[0]._Base = importer[1]._Base = GetComponent<Node_Base>();
-        exporter[0]._Base = GetComponent<Node_Base>();
-
-
         base.Start();
     }
 
     void Update()
     {
-        if (importer[0].pipline != null)
+        if (importer[0].importVariable != null)
         {
             //export
-            exporter[0].VariableName = VariableName.ToString() + "_" + id.ToString();
-            actionString = "float " + VariableName + "_" + id + " = " + importer[0].importVariableName + " + " + importer[1].importVariableName + "; \n";
+            var variableType = VariableData.VariableType.float1;
+            var _var = exporter[0].exportVariable = new VariableData(VariableName.ToString() + "_" + id.ToString(), variableType);
+            actionString = _var.VariableType2string(variableType) + " " + VariableName + "_" + id + " = " + importer[0].importVariable.variableName + " + " + importer[1].importVariable.variableName + "; \n";
         }
     }
 }

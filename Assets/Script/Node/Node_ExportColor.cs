@@ -15,10 +15,6 @@ public class Node_ExportColor : Node_Base
     override public void Start()
     {
         VariableName = "ExportColor";
-
-        importer[0]._Base = GetComponent<Node_Base>();
-        exporter[0]._Base = exporter[1]._Base = exporter[2]._Base = exporter[3]._Base = GetComponent<Node_Base>();
-
         base.Start();
     }
 
@@ -28,11 +24,11 @@ public class Node_ExportColor : Node_Base
         {
 
             //export
-            exporter[0].VariableName = VariableName.ToString() + "R_" + id.ToString();
-            exporter[1].VariableName = VariableName.ToString() + "G_" + id.ToString();
-            exporter[2].VariableName = VariableName.ToString() + "B_" + id.ToString();
-            exporter[3].VariableName = VariableName.ToString() + "A_" + id.ToString();
-            var imp0 = importer[0].importVariableName;
+            exporter[0].exportVariable = new VariableData(VariableName.ToString() + "R_" + id.ToString(), VariableData.VariableType.float1);
+            exporter[0].exportVariable = new VariableData(VariableName.ToString() + "G_" + id.ToString(), VariableData.VariableType.float1);
+            exporter[0].exportVariable = new VariableData(VariableName.ToString() + "B_" + id.ToString(), VariableData.VariableType.float1);
+            exporter[0].exportVariable = new VariableData(VariableName.ToString() + "A_" + id.ToString(), VariableData.VariableType.float1);
+            var imp0 = importer[0].importVariable.variableName;
             if (ExportType.value == 0)
             {
                 actionString = "float " + VariableName + "R_" + id + " = " + imp0 + ".x; \n" +

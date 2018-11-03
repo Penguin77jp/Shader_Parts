@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -633,8 +633,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Base: {fileID: 0}
-  VariableType: 0
-  importVariableName: 
   pipline: {fileID: 0}
 --- !u!1 &308243465
 GameObject:
@@ -789,9 +787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Base: {fileID: 0}
-  VariableName: 
   pipline: {fileID: 0}
-  actionString: 
 --- !u!114 &368777598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1365,9 +1361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Base: {fileID: 0}
-  VariableName: 
   pipline: {fileID: 0}
-  actionString: 
 --- !u!114 &648353299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2003,8 +1997,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Base: {fileID: 0}
-  VariableType: 0
-  importVariableName: 
   pipline: {fileID: 0}
 --- !u!114 &940060877
 MonoBehaviour:
@@ -2171,9 +2163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Base: {fileID: 0}
-  VariableName: 
   pipline: {fileID: 0}
-  actionString: 
 --- !u!1 &969182146
 GameObject:
   m_ObjectHideFlags: 0
@@ -2646,9 +2636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Base: {fileID: 0}
-  VariableName: 
   pipline: {fileID: 0}
-  actionString: 
 --- !u!114 &1095671433
 MonoBehaviour:
   m_ObjectHideFlags: 0
